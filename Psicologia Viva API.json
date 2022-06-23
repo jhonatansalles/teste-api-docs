@@ -1,0 +1,385 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Psicologia Viva API",
+        "version": "1.0.0",
+        "description": "Serviços para integração entre empresas e a plataforma da Psicologia Viva.\n\nPara  saber mais sobre a Psicologia Viva:\n[https://www.psicologiaviva.com.br/](https://www.psicologiaviva.com.br/).\n\n# Introdução\n**Psicologia Viva API** está organizada através dos conceitos de arquitetura [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).\nA API possui URLs orientadas a recursos, aceita requisições HTTPS e retorna respostas em formato JSON, além de utilizar códigos HTTP padrão, autenticação e verbos.\n\n# Autenticação\nPsicologia Viva API - Oferece a forma de autenticação via `token API`. Para obter um token de autenticação, entre em contato com nosso time técnico.\n",
+        "termsOfService": "https://www.conexasaude.com.br/",
+        "contact": {
+            "name": "Psicologia Viva",
+            "url": "https://www.psicologiaviva.com.br/",
+            "email": "no-reply@psicologiaviva.com.br"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "x-logo": {
+            "url": "https://www.psicologiaviva.com.br/assets/img/logo/psicologiaviva_fundo_claro.png",
+            "altText": "Conexa logo"
+        }
+    },
+    "host": "hml-services.psicologiaviva.com.br",
+    "basePath": "/auth",
+    "paths": {
+        "/v1/login/refreshtoken": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login-controller"
+                ],
+                "parameters": [
+                    {
+                        "name": "dto",
+                        "description": "dto",
+                        "schema": {
+                            "$ref": "#/definitions/RefreshTokenDTO"
+                        },
+                        "in": "body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LoginDTO"
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false,
+                "operationId": "refreshTokenJwtUsingPOST",
+                "summary": "Realiza o refresh do token JWT"
+            }
+        },
+        "/v1/mobile/login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login-mobile-controller"
+                ],
+                "parameters": [
+                    {
+                        "name": "login",
+                        "description": "login",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDTO"
+                        },
+                        "in": "body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LoginMobileDTO"
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false,
+                "operationId": "loginUsingPOST_1",
+                "summary": "Realiza a autenticação do usuário nos dispositivo movel no App"
+            }
+        },
+        "/v1/oauth2/token/link": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login-o-auth-2-controller"
+                ],
+                "parameters": [
+                    {
+                        "name": "login",
+                        "description": "login",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDTO"
+                        },
+                        "in": "body",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LoginDTO"
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false,
+                "operationId": "loginLinkMagicoUsingPOST_1",
+                "summary": "Realiza a autenticação do usuário link mágico - OAuth2"
+            }
+        },
+        "/v1/oauth2/token/user": {
+            "post": {
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "tags": [
+                    "login-o-auth-2-controller"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false,
+                "operationId": "loginUsingPOST_2",
+                "summary": "Realiza a autenticação via OAuth2"
+            }
+        }
+    },
+    "definitions": {
+        "DadosConvenioDTO": {
+            "title": "DadosConvenioDTO",
+            "type": "object",
+            "properties": {
+                "codigo": {
+                    "type": "string"
+                },
+                "nome": {
+                    "type": "string"
+                }
+            }
+        },
+        "DadosUsuarioDTO": {
+            "title": "DadosUsuarioDTO",
+            "type": "object",
+            "properties": {
+                "celular": {
+                    "type": "string"
+                },
+                "codigoPaisCelular": {
+                    "type": "string"
+                },
+                "convenio": {
+                    "$ref": "#/definitions/DadosConvenioDTO"
+                },
+                "cpf": {
+                    "type": "string"
+                },
+                "dataNascimento": {
+                    "type": "string",
+                    "example": "yyyy-MM-dd"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "sexo": {
+                    "type": "string"
+                }
+            }
+        },
+        "JsonCommonMessage": {
+            "title": "JsonCommonMessage",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object"
+                },
+                "info": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "messageKey": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "enum": [
+                        "SUCCESS",
+                        "ALERT",
+                        "ERROR"
+                    ],
+                    "type": "string"
+                }
+            }
+        },
+        "LoginDTO": {
+            "title": "LoginDTO",
+            "type": "object",
+            "properties": {
+                "authorization": {
+                    "type": "string"
+                },
+                "convenio": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "reCaptcha": {
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "CONSULTORIO",
+                        "SCHEDULE",
+                        "SULAMERICA",
+                        "EXTERNO",
+                        "CONEXA_SAUDE"
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                }
+            }
+        },
+        "LoginMobileDTO": {
+            "title": "LoginMobileDTO",
+            "type": "object",
+            "properties": {
+                "authorization": {
+                    "type": "string"
+                },
+                "convenio": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "reCaptcha": {
+                    "type": "string"
+                },
+                "refreshToken": {
+                    "type": "string"
+                },
+                "type": {
+                    "enum": [
+                        "CONSULTORIO",
+                        "SCHEDULE",
+                        "SULAMERICA",
+                        "EXTERNO",
+                        "CONEXA_SAUDE"
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "usuario": {
+                    "$ref": "#/definitions/DadosUsuarioDTO"
+                }
+            }
+        },
+        "RefreshTokenDTO": {
+            "title": "RefreshTokenDTO",
+            "type": "object",
+            "properties": {
+                "refreshToken": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "login-mobile-controller",
+            "description": "Login Mobile Controller"
+        },
+        {
+            "name": "login-o-auth-2-controller",
+            "description": "Login O Auth 2 Controller"
+        }
+    ]
+}
