@@ -31,7 +31,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "login-controller"
+                    "Login EXEMPLO"
                 ],
                 "parameters": [
                     {
@@ -81,7 +81,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "login-mobile-controller"
+                    "Login EXEMPLO"
                 ],
                 "parameters": [
                     {
@@ -131,7 +131,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "login-o-auth-2-controller"
+                    "Login EXEMPLO"
                 ],
                 "parameters": [
                     {
@@ -181,7 +181,7 @@
                     "*/*"
                 ],
                 "tags": [
-                    "login-o-auth-2-controller"
+                    "Login EXEMPLO"
                 ],
                 "responses": {
                     "200": {
@@ -374,12 +374,8 @@
     },
     "tags": [
         {
-            "name": "login-mobile-controller",
-            "description": "Login Mobile Controller"
-        },
-        {
-            "name": "login-o-auth-2-controller",
-            "description": "Login O Auth 2 Controller"
+            "name": "Login EXEMPLO",
+            "description": ""
         }
     ]
 }
